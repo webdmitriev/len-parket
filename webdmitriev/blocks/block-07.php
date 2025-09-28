@@ -21,13 +21,14 @@ $block_bgc  = get_field('block_bgc') ? 'background-color:' . get_field('block_bg
 
 $title      = wp_kses(get_field('title'), $allowed_tags);
 $descr      = wp_kses(get_field('descr'), $allowed_tags);
-$excerpt    = wp_kses(get_field('excerpt'), $allowed_tags);
+$btn_text   = wp_kses(get_field('btn_text'), $allowed_tags);
+$btn_class  = wp_kses(get_field('btn_class'), $allowed_tags);
 $image      = esc_url(get_field('image'));
 
 ?>
 
 <!-- <?= $block_path; ?> (start) -->
-<section class="hero">
+<section class="block-01" id="<?= $block_id; ?>" style="<?= $block_bgc; ?>">
   <?php if( is_admin() ) : ?>
     <style>[data="gutenberg-preview-img"] img {width: 100%;object-fit: contain;}</style>
     <div class="gutenber-block" style="padding: 10px 20px;background-color: #F5F5F5;border: 1px solid #D1D1D1;"><?= $gutenberg_title; ?></div>
@@ -35,17 +36,7 @@ $image      = esc_url(get_field('image'));
   <?php endif; ?>
 
   <?php if( !is_admin() ) : ?>
-    <div class="container">
-      <div class="hero__inner">
-        <div class="hero__block">
-          <?php if($title): ?><h1 class="hero__title section__title"><?= $title; ?></h1><?php endif; ?>
-          <?php if($image): ?><img src="<?= $image; ?>" alt="" class="hero__block-img"><?php endif; ?>
-          <?php if($descr): ?><p class="hero__descr section__descr"><?= $descr; ?></p><?php endif; ?>
-        </div>
-        <?php if($image): ?><img src="<?= $image; ?>" alt="" class="hero__img" /><?php endif; ?>
-        <?php if($excerpt): ?><div class="hero__addtext divider__inner"><?= $excerpt; ?></div><?php endif; ?>
-      </div>
-    </div>
+    <!--  -->
   <?php endif; ?>
 </section>
 <!-- <?= $block_path; ?> (end) -->
