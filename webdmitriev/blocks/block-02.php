@@ -24,8 +24,12 @@ $sub_title  = wp_kses(get_field('sub_title'), $allowed_tags);
 $text_title = wp_kses(get_field('text_title'), $allowed_tags);
 $text_pd    = wp_kses(get_field('text_pd'), $allowed_tags);
 $image_pd   = esc_url(get_field('image_pd'));
-$pd_pros    = get_field('pd_pros'); // title, text
-$pd_cons    = get_field('pd_cons'); // title, text
+
+$pd_pros_title  = wp_kses(get_field('pd_pros_title'), $allowed_tags);
+$pd_pros        = get_field('pd_pros'); // title, text
+
+$pd_cons_title  = wp_kses(get_field('pd_cons_title'), $allowed_tags);
+$pd_cons        = get_field('pd_cons'); // title, text
 
 ?>
 
@@ -52,7 +56,7 @@ $pd_cons    = get_field('pd_cons'); // title, text
         <div class="parket__pros-cons">
           <?php if (have_rows('pd_pros')): ?>
             <div class="parket__col parket__col-pros">
-              <p class="parket__col-title"><?php the_sub_field('title'); ?></p>
+              <?php if($pd_pros_title): ?><p class="parket__col-title"><?= $pd_pros_title; ?></p><?php endif; ?>
               <ul class="parket__col-list">
                 <?php while (have_rows('pd_pros')): the_row(); ?>
                   <li class="parket__col-item"><?php the_sub_field('text'); ?></li>
@@ -63,7 +67,7 @@ $pd_cons    = get_field('pd_cons'); // title, text
 
           <?php if (have_rows('pd_cons')): ?>
             <div class="parket__col parket__col-cons">
-              <p class="parket__col-title"><?php the_sub_field('title'); ?></p>
+              <?php if($pd_cons_title): ?><p class="parket__col-title"><?= $pd_cons_title; ?></p><?php endif; ?>
               <ul class="parket__col-list">
                 <?php while (have_rows('pd_cons')): the_row(); ?>
                   <li class="parket__col-item"><?php the_sub_field('text'); ?></li>
