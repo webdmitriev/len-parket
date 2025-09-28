@@ -1,0 +1,111 @@
+/*
+Theme Name: My Basic Theme
+Theme URI: https://example.com/mybasictheme
+Author: Your Name
+Author URI: https://example.com
+Description: Очень простая начальная тема для WordPress.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mybasictheme
+Tags: basic, simple, starter
+*/
+
+/* Базовые сбросы стилей */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Структура макета */
+.site-header {
+  background: #f4f4f4;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.site-branding {
+  text-align: center;
+}
+
+.site-title {
+  margin: 0;
+}
+
+.site-title a {
+  text-decoration: none;
+  color: #333;
+  font-size: 2em;
+}
+
+.site-description {
+  color: #777;
+  font-style: italic;
+}
+
+.main-navigation {
+  background: #333;
+  text-align: center;
+}
+
+.main-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation li {
+  display: inline-block;
+}
+
+.main-navigation a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: block;
+}
+
+.main-navigation a:hover {
+  background: #555;
+}
+
+/* Основной контент */
+.site-main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.entry-title a {
+  text-decoration: none;
+  color: #222;
+}
+
+.entry-meta {
+  color: #999;
+  font-size: 0.9em;
+}
+
+/* Сайдбар */
+.widget-area {
+  background: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #eee;
+}
+
+/* Подвал */
+.site-footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}

@@ -1,0 +1,7 @@
+background-color: var(--accent-color);
+
+
+<picture>
+  <source srcset="<?= $bg_576; ?>" type="image/jpeg" media="(max-width: 576px)">
+  <img class="lazy img" src="<?= $image_base64; ?>" data-src="<?= $bg_1920; ?>" alt="MGUBS">
+</picture>
