@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Admin
+ * Admin 
  */
 require get_template_directory() . '/webdmitriev/admin.php';
 
