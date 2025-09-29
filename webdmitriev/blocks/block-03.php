@@ -16,15 +16,22 @@ $allowed_tags = array(
   )
 );
 
-$block_id   = wp_kses(get_field('block_id'), $allowed_tags);
-$block_bgc  = get_field('block_bgc') ? 'background-color:' . get_field('block_bgc') : false;
+$block_id       = wp_kses(get_field('block_id'), $allowed_tags);
+$block_bgc      = get_field('block_bgc') ? 'background-color:' . get_field('block_bgc') : false;
 
-$title      = wp_kses(get_field('title'), $allowed_tags);
-$image      = esc_url(get_field('image'));
-$descr      = wp_kses(get_field('descr'), $allowed_tags);
+$title          = wp_kses(get_field('title'), $allowed_tags);
+$image          = esc_url(get_field('image'));
+$descr          = wp_kses(get_field('descr'), $allowed_tags);
 
-$btn_text   = wp_kses(get_field('btn_text'), $allowed_tags);
-$btn_class  = wp_kses(get_field('btn_class'), $allowed_tags);
+$title_elements = wp_kses(get_field('title_elements'), $allowed_tags);
+$elements       = get_field('elements'); // text
+
+$title_blocks   = wp_kses(get_field('title_blocks'), $allowed_tags);
+$blocks         = get_field('blocks'); // text
+$image_blocks   = esc_url(get_field('image_blocks'));
+
+$quote          = wp_kses(get_field('quote'), $allowed_tags);
+
 
 ?>
 
@@ -45,64 +52,28 @@ $btn_class  = wp_kses(get_field('btn_class'), $allowed_tags);
           <?php if($descr): ?><div class="laminat__text"><?= $descr; ?></div><?php endif; ?>
         </div>
 
-        <?php
-        // Получаем поля
-        $pros = get_field('l_pros');
-        $cons = get_field('l_cons');
-
-        // Проверяем, есть ли что-то для вывода
-        if (($pros && array_filter($pros)) || ($cons && have_rows('l_cons'))): ?>
-          <div class="laminat__proscons">
-
-            <?php if ($pros && array_filter($pros)): ?>
-              <div class="laminat__pros">
-                <?php if (isset($pros['title']) && $pros['title']): ?>
-                  <p class="laminat__proscons__title"><?= esc_html($pros['title']); ?></p>
-                <?php endif; ?>
-                <div class="laminat__pros-row">
-                  <?php for ($i = 1; $i <= 4; $i++):
-                    if (!empty($pros['text' . $i])): ?>
-                      <div class="laminat__pros-item <?= $i === 1 ? 'green' : ''; ?>">
-                        <?= esc_html($pros['text' . $i]); ?>
-                      </div>
-                  <?php endif;
-                  endfor; ?>
-                </div>
-              </div>
-            <?php endif; ?>
-
-            <?php if ($cons && have_rows('l_cons')): ?>
-              <div class="laminat__cons">
-                <?php if (isset($cons['title']) && $cons['title']): ?>
-                  <p class="laminat__proscons__title"><?= esc_html($cons['title']); ?></p>
-                <?php endif; ?>
-                <div class="laminat__cons-row">
-                  <?php while (have_rows('l_cons')): the_row();
-                    $text = get_sub_field('text');
-                    if ($text): ?>
-                      <div class="laminat__cons-item">
-                        <?= esc_html($text); ?>
-                      </div>
-                  <?php endif;
-                  endwhile; ?>
-                </div>
-                <?php $img = get_sub_field('l_cons-img');
-                if ($img): ?>
-                  <img src="<?= esc_url($img); ?>" class="laminat__cons-img">
-                <?php endif; ?>
-              </div>
-            <?php endif; ?>
-
+        <div class="laminat__proscons">
+          <div class="laminat__pros">
+            <?php if($title_elements): ?><p class="laminat__proscons__title"><?= $title_elements; ?></p><?php endif; ?>
+            <div class="laminat__pros-row">
+              <?php if( have_rows('elements') ) : while ( have_rows('elements') ) : the_row(); ?>
+                <div class="laminat__pros-item"><?= get_sub_field('text'); ?></div>
+              <?php endwhile; endif; ?>
+            </div>
           </div>
-        <?php endif; ?>
 
-        <?php $addtext = get_sub_field('l_addtext'); ?>
-        <?php if (!empty($addtext)): ?>
-          <div class="laminat__addtext divider__inner">
-            <?= wp_kses_post($addtext); ?>
+          <div class="laminat__cons">
+            <?php if($title_blocks): ?><p class="laminat__proscons__title"><?= $title_blocks; ?></p><?php endif; ?>
+            <div class="laminat__cons-row">
+              <?php if( have_rows('blocks') ) : while ( have_rows('blocks') ) : the_row(); ?>
+                <div class="laminat__pros-item"><?= get_sub_field('text'); ?></div>
+              <?php endwhile; endif; ?>
+            </div>
+            <?php if($image_blocks): ?><img src="<?= $image_blocks; ?>" class="laminat__cons-img" /><?php endif; ?>
           </div>
-        <?php endif; ?>
+        </div>
 
+        <?php if($quote): ?><div class="laminat__addtext divider__inner"><?= $quote; ?></div><?php endif; ?>
       </div>
     </div>
   <?php endif; ?>

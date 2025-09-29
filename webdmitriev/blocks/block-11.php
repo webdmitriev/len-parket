@@ -3,8 +3,8 @@
  * Conference - Block
  */
 
-$block_path = 'block-04';
-$gutenberg_title = 'Block - 04';
+$block_path = 'block-11';
+$gutenberg_title = 'Block - 11';
 
 $url = get_template_directory_uri();
 $image_base64 = 'data:image/gif;base64,R0lGODlhBwAFAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAUAAAIFjI+puwUAOw==';
@@ -20,17 +20,12 @@ $block_id   = wp_kses(get_field('block_id'), $allowed_tags);
 $block_bgc  = get_field('block_bgc') ? 'background-color:' . get_field('block_bgc') : false;
 
 $title      = wp_kses(get_field('title'), $allowed_tags);
-$descr      = wp_kses(get_field('descr'), $allowed_tags);
-$image      = esc_url(get_field('image'));
-
-$text       = wp_kses(get_field('text'), $allowed_tags);
-$image_02   = esc_url(get_field('image_02'));
-
+$posts      = get_field('posts'); // title, link, descr, image
 
 ?>
 
 <!-- <?= $block_path; ?> (start) -->
-<section class="price">
+<section class="services" style="padding-top: 0px">
   <?php if( is_admin() ) : ?>
     <style>[data="gutenberg-preview-img"] img {width: 100%;object-fit: contain;}</style>
     <div class="gutenber-block" style="padding: 10px 20px;background-color: #F5F5F5;border: 1px solid #D1D1D1;"><?= $gutenberg_title; ?></div>
@@ -39,21 +34,18 @@ $image_02   = esc_url(get_field('image_02'));
 
   <?php if( !is_admin() ) : ?>
     <div class="container">
-      <div class="price__inner">
-        <div class="price__row1">
-          <div class="price__block">
-            <h2 class="price__title section__title"><?= $title; ?></h2>
-            <div class="price__text"><?= $descr; ?></div>
-          </div>
-          <img src="<?= $image; ?>" class="price__img1" />
-          <h2 class="price__title section__title"><?= $title; ?></h2>
-        </div>
+      <?php if($title): ?><h3 class="services__title section__title"><?= $title; ?></h3><?php endif; ?>
 
-        <div class="price__row2">
-          <img src="<?= $image_02; ?>" class="price__img2" />
-          <div class="price__text green"><?= $text; ?></div>
-        </div>
+      <div class="services__items">
+        <?php if( have_rows('posts') ) : while ( have_rows('posts') ) : the_row(); ?>
+          <a class="services__item" href="<?= get_sub_field('link'); ?>" target="_blank" rel="noopener">
+            <img class="services__item-img" src="<?= get_sub_field('image') ?? $image_base64; ?>" alt="Ремонт паркета" />
+            <?php if(get_sub_field('title')): ?><div class="services__item-title"><?= get_sub_field('title'); ?></div><?php endif; ?>
+            <?php if(get_sub_field('descr')): ?><div class="services__item-descr"><?= get_sub_field('descr'); ?></div><?php endif; ?>
+          </a>
+        <?php endwhile; endif; ?>
       </div>
+
     </div>
   <?php endif; ?>
 </section>

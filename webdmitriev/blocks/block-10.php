@@ -3,8 +3,8 @@
  * Conference - Block
  */
 
-$block_path = 'block-04';
-$gutenberg_title = 'Block - 04';
+$block_path = 'block-10';
+$gutenberg_title = 'Block - 10';
 
 $url = get_template_directory_uri();
 $image_base64 = 'data:image/gif;base64,R0lGODlhBwAFAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAUAAAIFjI+puwUAOw==';
@@ -23,14 +23,13 @@ $title      = wp_kses(get_field('title'), $allowed_tags);
 $descr      = wp_kses(get_field('descr'), $allowed_tags);
 $image      = esc_url(get_field('image'));
 
-$text       = wp_kses(get_field('text'), $allowed_tags);
-$image_02   = esc_url(get_field('image_02'));
-
+$images     = get_field('images'); // image
+$cf7        = get_field('cf7');
 
 ?>
 
 <!-- <?= $block_path; ?> (start) -->
-<section class="price">
+<section class="calculate">
   <?php if( is_admin() ) : ?>
     <style>[data="gutenberg-preview-img"] img {width: 100%;object-fit: contain;}</style>
     <div class="gutenber-block" style="padding: 10px 20px;background-color: #F5F5F5;border: 1px solid #D1D1D1;"><?= $gutenberg_title; ?></div>
@@ -39,20 +38,28 @@ $image_02   = esc_url(get_field('image_02'));
 
   <?php if( !is_admin() ) : ?>
     <div class="container">
-      <div class="price__inner">
-        <div class="price__row1">
-          <div class="price__block">
-            <h2 class="price__title section__title"><?= $title; ?></h2>
-            <div class="price__text"><?= $descr; ?></div>
-          </div>
-          <img src="<?= $image; ?>" class="price__img1" />
-          <h2 class="price__title section__title"><?= $title; ?></h2>
+      <div class="calculation-form">
+
+        <div class="calculation-form__descr">
+          <?php if($title): ?><p class="calculation-form__title"><?= $title; ?></p><?php endif; ?>
+          <?php if($descr): ?><p class="calculation-form__text"><?= $descr; ?></p><?php endif; ?>
         </div>
 
-        <div class="price__row2">
-          <img src="<?= $image_02; ?>" class="price__img2" />
-          <div class="price__text green"><?= $text; ?></div>
+        <?php if($image): ?><img class="calculation-form__img" src="<?= $image; ?>" alt="Картинка" /><?php endif; ?>
+
+        <div class="calculation-form__form">
+
+          <?= $cf7 ?? do_shortcode($cf7); ?>
+
+          <div class="calculation-form__imgs">
+            <div class="calculation-form__imgs-img"></div>
+            <?php if( have_rows('images') ) : while ( have_rows('images') ) : the_row(); ?>
+              <img class="calculation-form__imgs-img" src="<?= get_sub_field('image'); ?>" alt="Картинка" />
+            <?php endwhile; endif; ?>
+          </div>
+
         </div>
+
       </div>
     </div>
   <?php endif; ?>
