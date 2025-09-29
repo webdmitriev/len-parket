@@ -42,7 +42,7 @@ add_action('acf/init', function() {
       'attributes' => array(
         'mode' => 'preview',
         'data' => array(
-          'gutenberg_preview' => '<img src="' . $image . 'block-breadcrumbs.jpg">'
+          'gutenberg_preview' => '<img src="' . $image . 'default.jpg">'
         )
       )
     )
@@ -62,7 +62,7 @@ add_action('acf/init', function() {
       'attributes' => array(
         'mode' => 'preview',
         'data' => array(
-          'gutenberg_preview' => '<img src="' . $image . 'block-ocenka.jpg">'
+          'gutenberg_preview' => '<img src="' . $image . 'default.jpg">'
         )
       )
     )
