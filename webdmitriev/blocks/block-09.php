@@ -10,6 +10,9 @@ $url = get_template_directory_uri();
 $image_base64 = 'data:image/gif;base64,R0lGODlhBwAFAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAUAAAIFjI+puwUAOw==';
 
 $allowed_tags = array(
+  'a'    => array(
+    'href' => array(),
+  ),
   'br'    => array(),
   'span'  => array(
     'class' => array(),
