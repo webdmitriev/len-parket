@@ -308,6 +308,46 @@ add_action('acf/init', function() {
     )
   ));
 
+  // 13
+  acf_register_block_type(array(
+    'name'            => 'webdmitriev-block-13',
+    'title'           => __('Block - 13'),
+    'description'     => __('Description'),
+    'render_template' => 'webdmitriev/blocks/block-13.php',
+    'category'        => 'block_webdmitriev',
+    'icon'            => $icon,
+    'keywords'        => array('webdmitriev'),
+    'mode'            => 'preview',
+    'example' => array(
+      'attributes' => array(
+        'mode' => 'preview',
+        'data' => array(
+          'gutenberg_preview' => '<img src="' . $image . 'default.jpg">'
+        )
+      )
+    )
+  ));
+
+  // 14
+  acf_register_block_type(array(
+    'name'            => 'webdmitriev-block-14',
+    'title'           => __('Block - 14'),
+    'description'     => __('Description'),
+    'render_template' => 'webdmitriev/blocks/block-14.php',
+    'category'        => 'block_webdmitriev',
+    'icon'            => $icon,
+    'keywords'        => array('webdmitriev'),
+    'mode'            => 'preview',
+    'example' => array(
+      'attributes' => array(
+        'mode' => 'preview',
+        'data' => array(
+          'gutenberg_preview' => '<img src="' . $image . 'default.jpg">'
+        )
+      )
+    )
+  ));
+
 });
 
 add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context) {
@@ -326,6 +366,8 @@ add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context)
     'acf/webdmitriev-block-10',
     'acf/webdmitriev-block-11',
     'acf/webdmitriev-block-12',
+    'acf/webdmitriev-block-13',
+    'acf/webdmitriev-block-14',
     'core/html',
     'core/shortcode',
   );

@@ -10,6 +10,7 @@ $url = get_template_directory_uri();
 $image_base64 = 'data:image/gif;base64,R0lGODlhBwAFAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAUAAAIFjI+puwUAOw==';
 
 $allowed_tags = array(
+  'b'    => array(),
   'br'    => array(),
   'span'  => array(
     'class' => array(),
@@ -19,10 +20,11 @@ $allowed_tags = array(
 $block_id   = wp_kses(get_field('block_id'), $allowed_tags);
 $block_bgc  = get_field('block_bgc') ? 'background-color:' . get_field('block_bgc') : false;
 
-$title      = wp_kses(get_field('title'), $allowed_tags);
-$descr      = wp_kses(get_field('descr'), $allowed_tags);
-$excerpt    = wp_kses(get_field('excerpt'), $allowed_tags);
-$image      = esc_url(get_field('image'));
+$title          = wp_kses(get_field('title'), $allowed_tags);
+$title_bgc_show = get_field('title_bgc_show') ? 'padding-left: 0;background-color: #92C75D;padding: 22px;border-radius: 5px;font-weight: 600;color: white;align-self: flex-start;' : '';
+$descr          = wp_kses(get_field('descr'), $allowed_tags);
+$excerpt        = wp_kses(get_field('excerpt'), $allowed_tags);
+$image          = esc_url(get_field('image'));
 
 ?>
 
@@ -38,7 +40,7 @@ $image      = esc_url(get_field('image'));
     <div class="container">
       <div class="hero__inner">
         <div class="hero__block">
-          <?php if($title): ?><h1 class="hero__title section__title"><?= $title; ?></h1><?php endif; ?>
+          <?php if($title): ?><h1 class="hero__title section__title" style="<?= $title_bgc_show; ?>"><?= $title; ?></h1><?php endif; ?>
           <?php if($image): ?><img src="<?= $image; ?>" alt="" class="hero__block-img"><?php endif; ?>
           <?php if($descr): ?><p class="hero__descr section__descr"><?= $descr; ?></p><?php endif; ?>
         </div>

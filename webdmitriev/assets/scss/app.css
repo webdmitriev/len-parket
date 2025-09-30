@@ -1045,4 +1045,178 @@ img.laminat__cons-img {
   .comparison .comparison__list .comparison__item .comparison__item-title {
     font-size: 20px;
   }
+}
+.construction .construction__text {
+  text-align: center;
+}
+
+.construction .construction__list {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+@media (max-width: 950px) {
+  .construction .construction__list {
+    flex-wrap: wrap;
+  }
+}
+.construction .construction__list .construction__item {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  flex: 0 1 474px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  padding: 26px 80px;
+}
+
+@media (max-width: 950px) {
+  .construction .construction__list .construction__item {
+    flex: 0 1 355px;
+  }
+}
+@media (max-width: 640px) {
+  .construction .construction__list .construction__item {
+    padding: 26px 60px;
+  }
+}
+.construction .construction__list .construction__item .construction__item-img {
+  width: 70px;
+}
+
+.construction .construction__list .construction__item .construction__item-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .construction .construction__list .construction__item .construction__item-title {
+    font-size: 20px;
+  }
+}
+.construction .construction__frame {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (max-width: 1300px) {
+  .construction .construction__frame {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.construction .construction__frame .construction__frame-img {
+  width: 570px;
+}
+
+@media (max-width: 1300px) {
+  .construction .construction__frame .construction__frame-img {
+    max-width: 732px;
+  }
+}
+@media (max-width: 750px) {
+  .construction .construction__frame .construction__frame-img {
+    max-width: 100%;
+  }
+}
+.construction .construction__frame .construction__frame-texts {
+  width: 690px;
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (max-width: 1300px) {
+  .construction .construction__frame .construction__frame-texts {
+    max-width: 900px;
+    width: auto;
+  }
+}
+.construction2 .construction__list {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+@media (max-width: 950px) {
+  .construction2 .construction__list {
+    flex-wrap: wrap;
+  }
+}
+.construction2 .construction__list .construction__item {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  gap: 22px;
+}
+
+@media (max-width: 950px) {
+  .construction2 .construction__list .construction__item {
+    width: 712px;
+  }
+}
+.construction2 .construction__list .construction__item .construction__item-block {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  padding: 40px 20px;
+  min-height: 375px;
+}
+
+@media (max-width: 640px) {
+  .construction2 .construction__list .construction__item .construction__item-block {
+    padding: 30px 10px;
+  }
+}
+.construction2 .construction__list .construction__item .construction__item-block .construction__item-img {
+  width: 70px;
+}
+
+.construction2 .construction__list .construction__item .construction__item-block .construction__item-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .construction2 .construction__list .construction__item .construction__item-block .construction__item-title {
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=app.css.map */

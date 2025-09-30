@@ -18,7 +18,7 @@ if ($ya_rating) {
 ?>
 
 <!-- <?= $block_path; ?> (start) -->
-<section class="ocenka">
+<section class="ocenka" style="margin: 35px 0;">
   <?php if( is_admin() ) : ?>
     <style>[data="gutenberg-preview-img"] img {width: 100%;object-fit: contain;}</style>
     <div class="gutenberg-block" style="padding: 10px 20px;background-color: #F5F5F5;border: 1px solid #D1D1D1;"><?= $gutenberg_title; ?> - (не редактируется)</div>
