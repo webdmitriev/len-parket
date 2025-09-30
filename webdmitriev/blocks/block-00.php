@@ -18,12 +18,11 @@ $allowed_tags = array(
 
 $text     = wp_kses(get_field('text'), $allowed_tags);
 $link     = esc_url(get_field('link'));
-$bg_1920  = get_field('bg_1920') ? "background-image: url(" . esc_url(get_field('bg_1920')) . ")"  : false;
 
 ?>
 
 <!-- <?= $block_path; ?> (start) -->
-<section class="www" style="<?php echo $bg_1920; ?>">
+<section class="www">
   <?php if( is_admin() ) : ?>
     <style>[data="gutenberg-preview-img"] img {width: 100%;object-fit: contain;}</style>
     <div class="gutenberg-block" style="padding: 10px 20px;background-color: #F5F5F5;border: 1px solid #D1D1D1;"><?= $gutenberg_title; ?></div>
