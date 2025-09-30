@@ -66,7 +66,7 @@ $quote          = wp_kses(get_field('quote'), $allowed_tags);
             <?php if($title_blocks): ?><p class="laminat__proscons__title"><?= $title_blocks; ?></p><?php endif; ?>
             <div class="laminat__cons-row">
               <?php if( have_rows('blocks') ) : while ( have_rows('blocks') ) : the_row(); ?>
-                <div class="laminat__pros-item"><?= get_sub_field('text'); ?></div>
+                <div class="laminat__cons-item"><?= get_sub_field('text'); ?></div>
               <?php endwhile; endif; ?>
             </div>
             <?php if($image_blocks): ?><img src="<?= $image_blocks; ?>" class="laminat__cons-img" /><?php endif; ?>

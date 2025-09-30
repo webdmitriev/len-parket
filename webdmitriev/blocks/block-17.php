@@ -10,18 +10,19 @@ $url = get_template_directory_uri();
 $image_base64 = 'data:image/gif;base64,R0lGODlhBwAFAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAUAAAIFjI+puwUAOw==';
 
 $allowed_tags = array(
-  'a'    => array(
-    'href' => array(),
+  'a'     => array(
+    'href'  => array(),
   ),
-  'b'    => array(),
+  'b'     => array(),
   'br'    => array(),
   'span'  => array(
     'class' => array(),
   )
 );
 
-$text     = wp_kses(get_field('text'), $allowed_tags);
-$link     = esc_url(get_field('link'));
+$title      = wp_kses(get_field('title'), $allowed_tags);
+$sub_title  = wp_kses(get_field('sub_title'), $allowed_tags);
+$elements   = get_field('elements'); // image, title, descr
 
 ?>
 
@@ -36,18 +37,16 @@ $link     = esc_url(get_field('link'));
   <?php if( !is_admin() ) : ?>
     <div class="container">
       <div class="ways__inner section__inner">
-        <h2 class="ways__title section__title"><?php the_field('ways_title'); ?></h2>
-        <p class="ways__subtitle section__descr"><?php the_field('ways_subtitle'); ?></p>
+        <?php if($title): ?><h2 class="ways__title section__title"><?= $title; ?></h2><?php endif; ?>
+        <?php if($sub_title): ?><p class="ways__subtitle section__descr"><?= $sub_title; ?></p><?php endif; ?>
         <ul class="ways__list">
-          <?php if (get_field('ways_list')) : ?>
-            <?php while (has_sub_field('ways_list')) : ?>
-              <li class="ways__item">
-                <img src="<?php the_sub_field('ways_item-img'); ?>" alt="" class="ways__item-img">
-                <p class="ways__item-title"><?php the_sub_field('ways_item-title'); ?></p>
-                <p class="ways__item-text"><?php the_sub_field('ways_item-text'); ?></p>
-              </li>
-            <?php endwhile; ?>
-          <?php endif; ?>
+          <?php if( have_rows('elements') ): while ( have_rows('elements') ): the_row(); ?>
+            <li class="ways__item">
+              <?php if(get_sub_field('image')): ?><img src="<?= get_sub_field('image'); ?>" alt="" class="ways__item-img" /><?php endif; ?>
+              <?php if(get_sub_field('title')): ?><p class="ways__item-title"><?= get_sub_field('title'); ?></p><?php endif; ?>
+              <?php if(get_sub_field('descr')): ?><p class="ways__item-text"><?= get_sub_field('descr'); ?></p><?php endif; ?>
+            </li>
+          <?php endwhile; endif; ?>
         </ul>
       </div>
     </div>

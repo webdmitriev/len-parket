@@ -1623,3 +1623,227 @@ img.laminat__cons-img {
   border-radius: 8px;
   border: 1px solid rgb(248, 248, 248);
 }
+
+.ways .ways__list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+@media (max-width: 950px) {
+  .ways .ways__list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.ways .ways__list .ways__item {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+  padding: 20px;
+  background-color: rgba(248, 248, 248, 1);
+  border-radius: 8px;
+}
+
+@media (max-width: 950px) {
+  .ways .ways__list .ways__item {
+    max-width: 700px;
+  }
+}
+
+.ways .ways__list .ways__item .ways__item-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.ways .ways__list .ways__item .ways__item-text {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.ways .ways__list .ways__item .ways__item-img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.ways .ways__subtitle {
+  max-width: 590px;
+}
+
+.rules .rules__title {
+  padding-left: 0;
+}
+
+.rules .rules__aftertext {
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 40px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.rules .rules__aftertext p {
+  width: 100%;
+  background-color: #f8f8f8;
+  max-width: 1000px;
+  font-size: 20px;
+}
+
+.rules .rules__aftertext p b {
+  font-weight: 700;
+}
+
+.rules .rules__fragment {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+@media (max-width: 950px) {
+  .rules .rules__fragment {
+    justify-content: center;
+  }
+}
+
+.rules .rules__fragment .rules__block {
+  max-width: 570px;
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+@media (max-width: 950px) {
+  .rules .rules__fragment .rules__block {
+    align-items: center;
+    max-width: 712px;
+  }
+}
+
+.rules .rules__fragment .rules__block .rules__block-img {
+  width: 442px;
+  border-radius: 5px;
+  display: none;
+}
+
+@media (max-width: 950px) {
+  .rules .rules__fragment .rules__block .rules__block-img {
+    display: block;
+  }
+}
+
+.rules .rules__fragment .rules__img {
+  width: 380px;
+  border-radius: 5px;
+}
+
+@media (max-width: 950px) {
+  .rules .rules__fragment .rules__img {
+    display: none;
+  }
+}
+
+.rules .rules__options {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+@media (max-width: 950px) {
+  .rules .rules__options {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.rules .rules__options .rules__options-col1 {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  max-width: 590px;
+}
+
+.rules .rules__options .rules__options-col1 .rules__options-title {
+  font-size: 28px;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.rules .rules__options .rules__options-col1 .rules__options-img {
+  width: 381px;
+}
+
+.rules .rules__options .rules__options-col2 {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 488px;
+}
+
+.rules .rules__options .rules__options-col2 .rules__options-descr {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.rules .rules__options .rules__options-col2 .rules__options-list {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rules .rules__options .rules__options-col2 .rules__options-list .rules__options-item {
+  display: -webkit-box;
+  /* Old Safari */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  align-items: center;
+}
+
+.rules .rules__options .rules__options-col2 .rules__options-list .rules__options-item .rules__options-item-img {
+  margin-right: -10px;
+  width: 63px;
+  height: 63px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.rules .rules__options .rules__options-col2 .rules__options-list .rules__options-item .rules__options-item-text {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  line-height: 20px;
+}
